@@ -18,7 +18,7 @@ namespace TreeService.Controllers
 
             return Ok(new
             {
-                node.Id
+                id = node.Id
             });
         }
 
@@ -37,7 +37,7 @@ namespace TreeService.Controllers
 
             return Ok(new
             {
-                node.Id
+                name = node.Name
             });
         }
     }

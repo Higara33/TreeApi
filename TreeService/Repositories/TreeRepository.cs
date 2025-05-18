@@ -57,9 +57,13 @@ namespace TreeService.Repositories
 
         public async Task DeleteNodeAsync(string treeName, long nodeId)
         {
-            var node = await _treeContext.Nodes.FindAsync(nodeId);
-            if (node.Children.Any())
+            var hasChildren = await _treeContext.Nodes.AnyAsync(n => n.ParentNodeId == nodeId);
+            if (hasChildren)
                 throw new SecureException("Cannot delete node with children");
+
+            var node = await _treeContext.Nodes.FindAsync(nodeId);
+            if (node == null)
+                throw new SecureException("Node not found");
 
             _treeContext.Nodes.Remove(node);
             await _treeContext.SaveChangesAsync();

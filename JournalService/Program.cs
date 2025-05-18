@@ -24,3 +24,9 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
+namespace JournalService
+{
+    // Этот класс нужен для WebApplicationFactory<TEntryPoint>
+    public partial class Program { }
+}
