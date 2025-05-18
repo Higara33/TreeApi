@@ -32,3 +32,7 @@ Example:
 4) в изначальном задании все эндпоинты были POST - поправил как мне показалось корректнее.
 5) ITimeProvider для тестируемого времени. DateTime.UtcNow - один раз были проблемы с ним, теперь всегда делаю так. В .NET 8 есть библиотечное решение https://learn.microsoft.com/en-us/dotnet/api/system.timeprovider?view=net-8.0.
 6) не стал добавлять swagger и health-check. делается быстро и просто.
+
+-AuthService: генерация JWT + Refresh-токенов, хранение в БД через EF Core, эндпоинт /api/user/partner/rememberMe.
+-JournalService: middleware для перехвата и логирования SecureException и прочих исключений, хранение журналов с JSONB-параметрами в Postgres.
+-TreeService: CRUD для деревьев и узлов с уникальным индексом (TreeId, ParentNodeId, Name) и поддержкой Closure Table.
