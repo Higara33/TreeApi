@@ -34,5 +34,7 @@ Example:
 6) не стал добавлять swagger и health-check. делается быстро и просто.
 
 -AuthService: генерация JWT + Refresh-токенов, хранение в БД через EF Core, эндпоинт /api/user/partner/rememberMe.
+
 -JournalService: middleware для перехвата и логирования SecureException и прочих исключений, хранение журналов с JSONB-параметрами в Postgres.
+
 -TreeService: CRUD для деревьев и узлов с уникальным индексом (TreeId, ParentNodeId, Name) и поддержкой Closure Table.
